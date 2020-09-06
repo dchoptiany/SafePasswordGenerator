@@ -25,6 +25,7 @@ namespace SafePasswordGenerator
 
             label1.ForeColor = textColor1;
             label2.ForeColor = textColor1;
+            label3.ForeColor = textColor1;
 
             checkedListBox1.ForeColor = textColor1;
             checkedListBox1.BackColor = backgroundColor1;
