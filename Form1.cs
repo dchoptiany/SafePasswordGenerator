@@ -40,6 +40,10 @@ namespace SafePasswordGenerator
             button1.ForeColor = textColor2;
             button1.BackColor = backgroundColor2;
 
+            button3.ForeColor = textColor2;
+            button3.BackColor = backgroundColor2;
+            button3.Enabled = false;
+
             numericUpDown1.ForeColor = textColor2;
             numericUpDown1.BackColor = backgroundColor2;
             numericUpDown1.Minimum = 6;
@@ -50,11 +54,17 @@ namespace SafePasswordGenerator
         {
             Generator generator = new Generator(Decimal.ToInt32(numericUpDown1.Value));
             maskedTextBox1.Text = generator.generate(checkedListBox2.GetItemChecked(0), checkedListBox2.GetItemChecked(1));
+            button3.Enabled = true;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Clipboard.SetText(maskedTextBox1.Text);
         }
     }
 }
