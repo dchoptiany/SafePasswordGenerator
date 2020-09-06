@@ -72,5 +72,13 @@ namespace SafePasswordGenerator
         {
             WindowState = FormWindowState.Minimized;
         }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode.ToString() == "G")
+            {
+                button1_Click(sender, e);
+            }
+        }
     }
 }
