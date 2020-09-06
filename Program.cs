@@ -32,106 +32,68 @@ namespace SafePasswordGenerator
 
         public String generate(bool numbers, bool symbols)
         {
-            String password;
+            String password = "";
             Random rnd = new Random();
 
             int key = 2 + (numbers ? 1 : 0) + (symbols ? 1 : 0);
 
-            do
+            if(!numbers && symbols)
             {
-                password = "";
+                key = 3;
 
-                if (!numbers && symbols)
+                for (int i = 0; i < length; i++)
                 {
-                    key = 3;
-
-                    for (int i = 0; i < length; i++)
+                    switch (rnd.Next(key))
                     {
-                        switch (rnd.Next(key))
-                        {
-                            case 0:
-                                {
-                                    password += lowercase[rnd.Next(26)];
-                                    break;
-                                }
-                            case 1:
-                                {
-                                    password += uppercase[rnd.Next(26)];
-                                    break;
-                                }
-                            case 2:
-                                {
-                                    password += special[rnd.Next(12)];
-                                    break;
-                                }
-                        }
+                        case 0:
+                            {
+                                password += lowercase[rnd.Next(26)];
+                                break;
+                            }
+                        case 1:
+                            {
+                                password += uppercase[rnd.Next(26)];
+                                break;
+                            }
+                        case 2:
+                            {
+                                password += special[rnd.Next(12)];
+                                break;
+                            }
                     }
                 }
-                else
-                {
-                    for (int i = 0; i < length; i++)
-                    {
-                        switch (rnd.Next(key))
-                        {
-                            case 0:
-                                {
-                                    password += lowercase[rnd.Next(26)];
-                                    break;
-                                }
-                            case 1:
-                                {
-                                    password += uppercase[rnd.Next(26)];
-                                    break;
-                                }
-                            case 2:
-                                {
-                                    password += digit[rnd.Next(10)];
-                                    break;
-                                }
-                            case 3:
-                                {
-                                    password += special[rnd.Next(12)];
-                                    break;
-                                }
-                        }
-                    }
-                }
-            } while(!isValid(password, numbers, symbols));
-
-            return password;
-        }
-
-        private bool isValid(String password, bool numbers, bool symbols)
-        {
-            bool lower = false;
-            bool upper = false;
-            bool dig = !numbers;
-            bool spec = !symbols;
-
-            for(int i = 0; i < length; i++)
+            }
+            else
             {
-                if(!lower && Array.Exists(lowercase, element => element == password[i]))
+                for (int i = 0; i < length; i++)
                 {
-                    lower = true;
-                }
-
-                if(!upper && Array.Exists(uppercase, element => element == password[i]))
-                {
-                    upper = true;
-                }
-
-                if(!dig && Array.Exists(digit, element => element == password[i]))
-                {
-                    dig = true;
-                }
-
-                if(!spec && Array.Exists(special, element => element == password[i]))
-                {
-                    spec = true;
+                    switch (rnd.Next(key))
+                    {
+                        case 0:
+                            {
+                                password += lowercase[rnd.Next(26)];
+                                break;
+                            }
+                        case 1:
+                            {
+                                password += uppercase[rnd.Next(26)];
+                                break;
+                            }
+                        case 2:
+                            {
+                                password += digit[rnd.Next(10)];
+                                break;
+                            }
+                        case 3:
+                            {
+                                password += special[rnd.Next(12)];
+                                break;
+                            }
+                    }
                 }
             }
 
-            return lower && upper && dig && spec;
+            return password;
         }
     }
 }
