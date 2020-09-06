@@ -35,6 +35,7 @@ namespace SafePasswordGenerator
             checkedListBox2.ForeColor = textColor1;
             checkedListBox2.BackColor = backgroundColor1;
             checkedListBox2.SetItemChecked(0, true);
+            checkedListBox2.SetItemChecked(1, true);
 
             button1.ForeColor = textColor2;
             button1.BackColor = backgroundColor2;
@@ -42,6 +43,13 @@ namespace SafePasswordGenerator
             numericUpDown1.ForeColor = textColor2;
             numericUpDown1.BackColor = backgroundColor2;
             numericUpDown1.Minimum = 6;
+            numericUpDown1.Maximum = 32;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Generator generator = new Generator(Decimal.ToInt32(numericUpDown1.Value));
+            maskedTextBox1.Text = generator.generate(checkedListBox2.GetItemChecked(0), checkedListBox2.GetItemChecked(1));
         }
 
         private void button2_Click(object sender, EventArgs e)
