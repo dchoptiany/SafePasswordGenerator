@@ -1,54 +1,35 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SafePasswordGenerator
 {
     public partial class Form1 : Form
     {
-        private bool darkMode = false;
-        
-        private Color lightBackgroundColor1 = Color.FromArgb(247, 236, 225);
-        private Color lightBackgroundColor2 = Color.FromArgb(90, 167, 90);
-        private Color lightTextColor1 = Color.FromArgb(35, 27, 30);
-        private Color lightTextColor2 = Color.White;
+        private bool darkMode = true;
 
-        private Color darkBackgroundColor1 = Color.FromArgb(49, 54, 56);
-        private Color darkBackgroundColor2 = Color.FromArgb(33, 161, 121);
-        private Color darkTextColor1 = Color.FromArgb(234, 224, 204);
-        private Color darkTextColor2 = Color.White;
+        private Color color1;
+        private Color color2;
+        private Color color3;
+        private Color color4 = Color.White;
+
+        private Color color1Dark = Color.FromArgb(49, 54, 56);
+        private Color color2Dark = Color.FromArgb(33, 161, 121);
+        private Color color3Dark = Color.FromArgb(234, 224, 204);
+
+        private Color color1Light = Color.FromArgb(247, 236, 225);
+        private Color color2Light = Color.FromArgb(90, 167, 90);
+        private Color color3Light = Color.FromArgb(35, 27, 30);
 
         public Form1()
         {
             InitializeComponent();
 
-            BackColor = lightBackgroundColor1;
+            button5_Click(null, null);
 
-            label1.ForeColor = lightTextColor1;
-            label2.ForeColor = lightTextColor1;
-            label3.ForeColor = lightTextColor1;
-            label4.ForeColor = lightTextColor1;
-
-            checkedListBox1.ForeColor = lightTextColor1;
-            checkedListBox1.BackColor = lightBackgroundColor1;
-
-            checkedListBox2.ForeColor = lightTextColor1;
-            checkedListBox2.BackColor = lightBackgroundColor1;
-
-            button1.ForeColor = lightTextColor2;
-            button1.BackColor = lightBackgroundColor2;
-
-            button3.ForeColor = lightTextColor2;
-            button3.BackColor = lightBackgroundColor2;
-
-            numericUpDown1.ForeColor = lightTextColor2;
-            numericUpDown1.BackColor = lightBackgroundColor2;
+            button1.ForeColor = color4;
+            button3.ForeColor = color4;
+            numericUpDown1.ForeColor = color4;
 
             checkedListBox1.SetItemChecked(0, true);
             checkedListBox1.SetItemChecked(1, true);
@@ -61,9 +42,24 @@ namespace SafePasswordGenerator
 
             numericUpDown1.Minimum = 6;
             numericUpDown1.Maximum = 32;
+        }
 
-            button5.ForeColor = darkTextColor1;
-            button5.BackColor = darkBackgroundColor1;
+        private void updateColors()
+        {
+            BackColor = color1;
+            checkedListBox1.BackColor = color1;
+            checkedListBox2.BackColor = color1;
+
+            button1.BackColor = color2;
+            button3.BackColor = color2;
+            numericUpDown1.BackColor = color2;
+
+            label1.ForeColor = color3;
+            label2.ForeColor = color3;
+            label3.ForeColor = color3;
+            label4.ForeColor = color3;
+            checkedListBox1.ForeColor = color3;
+            checkedListBox2.ForeColor = color3;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -97,68 +93,29 @@ namespace SafePasswordGenerator
         }
 
         private void button5_Click(object sender, EventArgs e)
-        {
+        { 
             if(!darkMode)
             {
                 button5.Text = "Light mode";
+                button5.ForeColor = color3Light;
+                button5.BackColor = color1Light;
 
-                BackColor = darkBackgroundColor1;
-
-                label1.ForeColor = darkTextColor1;
-                label2.ForeColor = darkTextColor1;
-                label3.ForeColor = darkTextColor1;
-                label4.ForeColor = darkTextColor1;
-
-                checkedListBox1.ForeColor = darkTextColor1;
-                checkedListBox1.BackColor = darkBackgroundColor1;
-
-                checkedListBox2.ForeColor = darkTextColor1;
-                checkedListBox2.BackColor = darkBackgroundColor1;
-
-                button1.ForeColor = darkTextColor2;
-                button1.BackColor = darkBackgroundColor2;
-
-                button3.ForeColor = darkTextColor2;
-                button3.BackColor = darkBackgroundColor2;
-
-                numericUpDown1.ForeColor = darkTextColor2;
-                numericUpDown1.BackColor = darkBackgroundColor2;
-                button5.ForeColor = lightTextColor1;
-                button5.BackColor = lightBackgroundColor1;
-
-                darkMode = true;
+                color1 = color1Dark;
+                color2 = color2Dark;
+                color3 = color3Dark;
             }
             else
             {
                 button5.Text = "Dark mode";
+                button5.ForeColor = color3Dark;
+                button5.BackColor = color1Dark;
 
-                BackColor = lightBackgroundColor1;
-
-                label1.ForeColor = lightTextColor1;
-                label2.ForeColor = lightTextColor1;
-                label3.ForeColor = lightTextColor1;
-                label4.ForeColor = lightTextColor1;
-
-                checkedListBox1.ForeColor = lightTextColor1;
-                checkedListBox1.BackColor = lightBackgroundColor1;
-
-                checkedListBox2.ForeColor = lightTextColor1;
-                checkedListBox2.BackColor = lightBackgroundColor1;
-
-                button1.ForeColor = lightTextColor2;
-                button1.BackColor = lightBackgroundColor2;
-
-                button3.ForeColor = lightTextColor2;
-                button3.BackColor = lightBackgroundColor2;
-
-                numericUpDown1.ForeColor = lightTextColor2;
-                numericUpDown1.BackColor = lightBackgroundColor2;
-
-                button5.ForeColor = darkTextColor1;
-                button5.BackColor = darkBackgroundColor1;
-
-                darkMode = false;
+                color1 = color1Light;
+                color2 = color2Light;
+                color3 = color3Light;
             }
+            darkMode = !darkMode;
+            updateColors();
         }
     }
 }
