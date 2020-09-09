@@ -20,14 +20,10 @@ namespace SafePasswordGenerator
     public class Generator
     {
         private int length;
-        /*private char[] lowercase = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
-        private char[] uppercase = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-        private char[] digit = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
-        private char[] special = {'!', '@', '#', '$', '%', '^', '&', '*', '/', '-', '+', '='};*/
-        private String lowercase = "abcdefghijklmnopqrstuvwxyz";
-        private String uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        private String digit = "0123456789";
-        private String special = "!@#$%^&*/-+=";
+        private const String lowercase = "abcdefghijklmnopqrstuvwxyz";
+        private const String uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        private const String digit = "0123456789";
+        private const String special = "!@#$%^&*/-+=";
 
         public Generator(int _length)
         {
