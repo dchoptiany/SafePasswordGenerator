@@ -14,19 +14,19 @@ namespace SafePasswordGenerator
         private Color color3;
         private Color color4 = Color.White;
 
-        private Color color1Dark = Color.FromArgb(49, 54, 56);
-        private Color color2Dark = Color.FromArgb(33, 161, 121);
-        private Color color3Dark = Color.FromArgb(234, 224, 204);
+        private readonly Color color1Dark = Color.FromArgb(49, 54, 56);
+        private readonly Color color2Dark = Color.FromArgb(33, 161, 121);
+        private readonly Color color3Dark = Color.FromArgb(234, 224, 204);
 
-        private Color color1Light = Color.FromArgb(247, 236, 225);
-        private Color color2Light = Color.FromArgb(90, 167, 90);
-        private Color color3Light = Color.FromArgb(35, 27, 30);
+        private readonly Color color1Light = Color.FromArgb(247, 236, 225);
+        private readonly Color color2Light = Color.FromArgb(90, 167, 90);
+        private readonly Color color3Light = Color.FromArgb(35, 27, 30);
 
-        private PrivateFontCollection pfc;
-        private Font password;
-        private Font smallText;
-        private Font regularText;
-        private Font boldTitle;
+        private readonly PrivateFontCollection pfc;
+        private readonly Font password;
+        private readonly Font smallText;
+        private readonly Font regularText;
+        private readonly Font boldTitle;
 
         public Form1()
         {
