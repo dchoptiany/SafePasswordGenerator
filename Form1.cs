@@ -12,7 +12,7 @@ namespace SafePasswordGenerator
         private Color color1;
         private Color color2;
         private Color color3;
-        private Color color4 = Color.White;
+        private readonly Color color4 = Color.White;
 
         private readonly Color color1Dark = Color.FromArgb(49, 54, 56);
         private readonly Color color2Dark = Color.FromArgb(33, 161, 121);
