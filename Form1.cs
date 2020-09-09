@@ -44,6 +44,7 @@ namespace SafePasswordGenerator
             maskedTextBox1.Font = password;
             label3.Font = smallText;
             label4.Font = smallText;
+            label5.Font = smallText;
             button5.Font = smallText;
             button1.Font = regularText;
             button3.Font = regularText;
@@ -67,6 +68,7 @@ namespace SafePasswordGenerator
             checkedListBox2.SetItemChecked(1, true);
 
             button3.Enabled = false;
+            label5.Visible = false;
 
             numericUpDown1.Minimum = 6;
             numericUpDown1.Maximum = 32;
@@ -86,6 +88,7 @@ namespace SafePasswordGenerator
             label2.ForeColor = color3;
             label3.ForeColor = color3;
             label4.ForeColor = color3;
+            label5.ForeColor = color3;
             checkedListBox1.ForeColor = color3;
             checkedListBox2.ForeColor = color3;
         }
@@ -95,6 +98,7 @@ namespace SafePasswordGenerator
             Generator generator = new Generator(Decimal.ToInt32(numericUpDown1.Value));
             maskedTextBox1.Text = generator.generate(checkedListBox2.GetItemChecked(0), checkedListBox2.GetItemChecked(1));
             button3.Enabled = true;
+            label5.Visible = false;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -105,6 +109,12 @@ namespace SafePasswordGenerator
         private void button3_Click(object sender, EventArgs e)
         {
             Clipboard.SetText(maskedTextBox1.Text);
+            label5.Visible = true;
+        }
+
+        private void maskedTextBox1_MouseDown(object sender, MouseEventArgs e)
+        {
+            button3_Click(sender, e);
         }
 
         private void button4_Click(object sender, EventArgs e)

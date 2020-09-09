@@ -43,6 +43,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -64,15 +65,17 @@
             // 
             this.maskedTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.maskedTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.maskedTextBox1.Location = new System.Drawing.Point(16, 44);
+            this.maskedTextBox1.Location = new System.Drawing.Point(28, 39);
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.ReadOnly = true;
             this.maskedTextBox1.Size = new System.Drawing.Size(553, 20);
             this.maskedTextBox1.TabIndex = 1;
             this.maskedTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.maskedTextBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.maskedTextBox1_MouseDown);
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button1);
@@ -86,7 +89,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(636, 53);
+            this.label4.Location = new System.Drawing.Point(636, 46);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(21, 13);
             this.label4.TabIndex = 4;
@@ -100,7 +103,7 @@
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(600, 76);
+            this.button3.Location = new System.Drawing.Point(600, 69);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(103, 33);
             this.button3.TabIndex = 3;
@@ -116,7 +119,7 @@
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(600, 18);
+            this.button1.Location = new System.Drawing.Point(600, 11);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(103, 33);
             this.button1.TabIndex = 2;
@@ -136,7 +139,7 @@
             this.checkedListBox1.Location = new System.Drawing.Point(0, 0);
             this.checkedListBox1.Margin = new System.Windows.Forms.Padding(0);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(239, 52);
+            this.checkedListBox1.Size = new System.Drawing.Size(239, 60);
             this.checkedListBox1.TabIndex = 2;
             // 
             // checkedListBox2
@@ -148,17 +151,17 @@
             this.checkedListBox2.Items.AddRange(new object[] {
             "Numbers",
             "Special symbols"});
-            this.checkedListBox2.Location = new System.Drawing.Point(0, 52);
+            this.checkedListBox2.Location = new System.Drawing.Point(0, 60);
             this.checkedListBox2.Margin = new System.Windows.Forms.Padding(0);
             this.checkedListBox2.Name = "checkedListBox2";
-            this.checkedListBox2.Size = new System.Drawing.Size(239, 52);
+            this.checkedListBox2.Size = new System.Drawing.Size(239, 60);
             this.checkedListBox2.TabIndex = 3;
             // 
             // numericUpDown1
             // 
             this.numericUpDown1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.numericUpDown1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.numericUpDown1.Location = new System.Drawing.Point(343, 55);
+            this.numericUpDown1.Location = new System.Drawing.Point(343, 63);
             this.numericUpDown1.MaximumSize = new System.Drawing.Size(60, 0);
             this.numericUpDown1.MinimumSize = new System.Drawing.Size(60, 0);
             this.numericUpDown1.Name = "numericUpDown1";
@@ -173,7 +176,7 @@
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.label2.Location = new System.Drawing.Point(302, 25);
+            this.label2.Location = new System.Drawing.Point(302, 33);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(143, 27);
             this.label2.TabIndex = 5;
@@ -188,12 +191,12 @@
             this.tableLayoutPanel1.Controls.Add(this.checkedListBox2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.numericUpDown1, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label2, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(172, 304);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(172, 280);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(498, 105);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(498, 120);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
             // label3
@@ -254,6 +257,16 @@
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Location = new System.Drawing.Point(235, 79);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(98, 13);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Copied to clipboard";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -298,6 +311,7 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label5;
     }
 }
 
