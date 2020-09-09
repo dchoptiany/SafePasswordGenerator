@@ -28,6 +28,15 @@ namespace SafePasswordGenerator
         private readonly Font regularText;
         private readonly Font boldTitle;
 
+        private Image closeIcon;
+        private Image minimizeIcon;
+
+        private readonly Image closeIconDark = Image.FromFile("..\\..\\Resources\\closeIconDark.png");
+        private readonly Image minimizeIconDark = Image.FromFile("..\\..\\Resources\\minimizeIconDark.png");
+
+        private readonly Image closeIconLight = Image.FromFile("..\\..\\Resources\\closeIconLight.png");
+        private readonly Image minimizeIconLight = Image.FromFile("..\\..\\Resources\\minimizeIconLight.png");
+
         public Form1()
         {
             InitializeComponent();
@@ -55,6 +64,9 @@ namespace SafePasswordGenerator
             label1.Font = boldTitle;
 
             button5_Click(null, null);
+
+            button2.BackgroundImageLayout = ImageLayout.Zoom;
+            button4.BackgroundImageLayout = ImageLayout.Zoom;
 
             button1.ForeColor = color4;
             button3.ForeColor = color4;
@@ -91,6 +103,9 @@ namespace SafePasswordGenerator
             label5.ForeColor = color3;
             checkedListBox1.ForeColor = color3;
             checkedListBox2.ForeColor = color3;
+
+            button2.BackgroundImage = closeIcon;
+            button4.BackgroundImage = minimizeIcon;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -138,6 +153,9 @@ namespace SafePasswordGenerator
                 button5.ForeColor = color3Light;
                 button5.BackColor = color1Light;
 
+                closeIcon = closeIconLight;
+                minimizeIcon = minimizeIconLight;
+
                 color1 = color1Dark;
                 color2 = color2Dark;
                 color3 = color3Dark;
@@ -147,6 +165,9 @@ namespace SafePasswordGenerator
                 button5.Text = "Dark mode";
                 button5.ForeColor = color3Dark;
                 button5.BackColor = color1Dark;
+
+                closeIcon = closeIconDark;
+                minimizeIcon = minimizeIconDark;
 
                 color1 = color1Light;
                 color2 = color2Light;

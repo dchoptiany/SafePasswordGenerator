@@ -63,9 +63,9 @@ namespace SafePasswordGenerator.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icon1 {
+        internal static System.Drawing.Bitmap closeIconDark {
             get {
-                object obj = ResourceManager.GetObject("icon1", resourceCulture);
+                object obj = ResourceManager.GetObject("closeIconDark", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace SafePasswordGenerator.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icon11 {
+        internal static System.Drawing.Bitmap closeIconLight {
             get {
-                object obj = ResourceManager.GetObject("icon11", resourceCulture);
+                object obj = ResourceManager.GetObject("closeIconLight", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace SafePasswordGenerator.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icon2 {
+        internal static System.Drawing.Bitmap minimizeIconDark {
             get {
-                object obj = ResourceManager.GetObject("icon2", resourceCulture);
+                object obj = ResourceManager.GetObject("minimizeIconDark", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,19 +93,9 @@ namespace SafePasswordGenerator.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icon21 {
+        internal static System.Drawing.Bitmap minimizeIconLight {
             get {
-                object obj = ResourceManager.GetObject("icon21", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap icon22 {
-            get {
-                object obj = ResourceManager.GetObject("icon22", resourceCulture);
+                object obj = ResourceManager.GetObject("minimizeIconLight", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
