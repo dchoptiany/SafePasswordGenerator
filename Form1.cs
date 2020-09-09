@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Windows.Forms;
 
 namespace SafePasswordGenerator
@@ -21,9 +22,36 @@ namespace SafePasswordGenerator
         private Color color2Light = Color.FromArgb(90, 167, 90);
         private Color color3Light = Color.FromArgb(35, 27, 30);
 
+        private PrivateFontCollection pfc;
+        private Font password;
+        private Font smallText;
+        private Font regularText;
+        private Font boldTitle;
+
         public Form1()
         {
             InitializeComponent();
+
+            pfc = new PrivateFontCollection();
+            pfc.AddFontFile("..\\..\\Resources\\Fonts\\DejaVuSans.ttf");
+            pfc.AddFontFile("..\\..\\Resources\\Fonts\\Poppins-Regular.ttf");
+
+            password = new Font(pfc.Families[0], 15.75f, FontStyle.Regular);
+            smallText = new Font(pfc.Families[1], 9.75f, FontStyle.Regular);
+            regularText = new Font(pfc.Families[1], 12f, FontStyle.Regular);
+            boldTitle = new Font(pfc.Families[1], 27.75f, FontStyle.Bold);
+
+            maskedTextBox1.Font = password;
+            label3.Font = smallText;
+            label4.Font = smallText;
+            button5.Font = smallText;
+            button1.Font = regularText;
+            button3.Font = regularText;
+            label2.Font = regularText;
+            numericUpDown1.Font = regularText;
+            checkedListBox1.Font = regularText;
+            checkedListBox2.Font = regularText;
+            label1.Font = boldTitle;
 
             button5_Click(null, null);
 
