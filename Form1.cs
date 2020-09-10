@@ -14,13 +14,13 @@ namespace SafePasswordGenerator
         private Color color3;
         private readonly Color color4 = Color.White;
 
-        private readonly Color color1Dark = Color.FromArgb(49, 54, 56);
-        private readonly Color color2Dark = Color.FromArgb(33, 161, 121);
-        private readonly Color color3Dark = Color.FromArgb(234, 224, 204);
+        private readonly Color color1Dark = Color.FromArgb(30, 39, 46);
+        private readonly Color color2Dark = Color.FromArgb(72, 84, 96);
+        private readonly Color color3Dark = Color.FromArgb(210, 218, 226);
 
-        private readonly Color color1Light = Color.FromArgb(247, 236, 225);
-        private readonly Color color2Light = Color.FromArgb(90, 167, 90);
-        private readonly Color color3Light = Color.FromArgb(35, 27, 30);
+        private readonly Color color1Light = Color.FromArgb(210, 218, 226);
+        private readonly Color color2Light = Color.FromArgb(5, 196, 107);
+        private readonly Color color3Light = Color.FromArgb(30, 39, 46);
 
         private readonly PrivateFontCollection pfc;
         private readonly Font password;
