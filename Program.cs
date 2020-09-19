@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text;
+using System.Security.Cryptography;
 
 namespace SafePasswordGenerator
 {
@@ -31,10 +32,20 @@ namespace SafePasswordGenerator
             length = _length;
         }
 
+        public int next(int max)
+        {
+            using(var rng = new RNGCryptoServiceProvider())
+            {
+                var data = new byte[4];
+                rng.GetBytes(data);
+                return Math.Abs(BitConverter.ToInt32(data, startIndex: 0)) % max;
+            }
+        }
+
         public String generate(bool numbers, bool symbols)
         {
+            var rng = new RNGCryptoServiceProvider();
             StringBuilder password = new StringBuilder();
-            Random rnd = new Random();
             String characters = lowercase + uppercase;
 
             if(numbers)
@@ -52,7 +63,7 @@ namespace SafePasswordGenerator
                 password.Clear();
                 for(int i = 0; i < length; i++)
                 {
-                    password.Append(characters[rnd.Next(characters.Length)]);
+                    password.Append(characters[next(characters.Length)]);
                 }
             } while(!isValid(password.ToString(), numbers, symbols));
 
