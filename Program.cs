@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text;
 
 namespace SafePasswordGenerator
 {
@@ -32,7 +33,7 @@ namespace SafePasswordGenerator
 
         public String generate(bool numbers, bool symbols)
         {
-            String password;
+            StringBuilder password = new StringBuilder();
             Random rnd = new Random();
             String characters = lowercase + uppercase;
 
@@ -48,15 +49,14 @@ namespace SafePasswordGenerator
 
             do
             {
-                password = "";
-
+                password.Clear();
                 for(int i = 0; i < length; i++)
                 {
-                    password += characters[rnd.Next(characters.Length)];
+                    password.Append(characters[rnd.Next(characters.Length)]);
                 }
-            } while(!isValid(password, numbers, symbols));
+            } while(!isValid(password.ToString(), numbers, symbols));
 
-            return password;
+            return password.ToString();
         }
 
         private bool isValid(String password, bool numbers, bool symbols)
