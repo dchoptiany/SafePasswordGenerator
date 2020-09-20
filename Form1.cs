@@ -110,8 +110,8 @@ namespace SafePasswordGenerator
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Generator generator = new Generator(Decimal.ToInt32(numericUpDown1.Value));
-            maskedTextBox1.Text = generator.generate(checkedListBox2.GetItemChecked(0), checkedListBox2.GetItemChecked(1));
+            Generator generator = new Generator();
+            maskedTextBox1.Text = generator.generate(checkedListBox2.GetItemChecked(0), checkedListBox2.GetItemChecked(1), Decimal.ToInt32(numericUpDown1.Value));
             button3.Enabled = true;
             label5.Visible = false;
         }

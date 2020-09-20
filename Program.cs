@@ -21,16 +21,14 @@ namespace SafePasswordGenerator
 
     public class Generator
     {
-        private int length;
         private const string lowercase = "abcdefghijklmnopqrstuvwxyz";
         private const string uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         private const string characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
         private const string digit = "0123456789";
         private const string special = "!@#$%^&*/-+=";
 
-        public Generator(int _length)
+        public Generator()
         {
-            length = _length;
         }
 
         public int next(int max)
@@ -43,7 +41,7 @@ namespace SafePasswordGenerator
             }
         }
 
-        public string generate(bool numbers, bool symbols)
+        public string generate(bool numbers, bool symbols, int length)
         {
             StringBuilder password = new StringBuilder();
             string chars = characters;
@@ -77,7 +75,7 @@ namespace SafePasswordGenerator
             bool dig = !numbers;
             bool spec = !symbols;
 
-            for (int i = 0; i < length; i++)
+            for (int i = 0; i < password.Length; i++)
             {
                 if (!lower && lowercase.Contains(password[i]))
                 {
