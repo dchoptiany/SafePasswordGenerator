@@ -45,7 +45,6 @@ namespace SafePasswordGenerator
 
         public string generate(bool numbers, bool symbols)
         {
-            var rng = new RNGCryptoServiceProvider();
             StringBuilder password = new StringBuilder();
             string chars = characters;
 
