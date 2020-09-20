@@ -19,7 +19,7 @@ namespace SafePasswordGenerator
         }
     }
 
-    public class Generator
+    static class Generator
     {
         private const string lowercase = "abcdefghijklmnopqrstuvwxyz";
         private const string uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -27,11 +27,7 @@ namespace SafePasswordGenerator
         private const string digit = "0123456789";
         private const string special = "!@#$%^&*/-+=";
 
-        public Generator()
-        {
-        }
-
-        public int next(int max)
+        private static int next(int max)
         {
             using(var rng = new RNGCryptoServiceProvider())
             {
@@ -41,7 +37,7 @@ namespace SafePasswordGenerator
             }
         }
 
-        public string generate(bool numbers, bool symbols, int length)
+        public static string generate(bool numbers, bool symbols, int length)
         {
             StringBuilder password = new StringBuilder();
             string chars = characters;
@@ -68,7 +64,7 @@ namespace SafePasswordGenerator
             return password.ToString();
         }
 
-        private bool isValid(string password, bool numbers, bool symbols)
+        private static bool isValid(string password, bool numbers, bool symbols)
         {
             bool lower = false;
             bool upper = false;
