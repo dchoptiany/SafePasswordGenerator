@@ -19,20 +19,15 @@ namespace SafePasswordGenerator
         }
     }
 
-    public class Generator
+    static class Generator
     {
-        private int length;
-        private const String lowercase = "abcdefghijklmnopqrstuvwxyz";
-        private const String uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        private const String digit = "0123456789";
-        private const String special = "!@#$%^&*/-+=";
+        private const string lowercase = "abcdefghijklmnopqrstuvwxyz";
+        private const string uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        private const string characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        private const string digit = "0123456789";
+        private const string special = "!@#$%^&*/-+=";
 
-        public Generator(int _length)
-        {
-            length = _length;
-        }
-
-        public int next(int max)
+        private static int next(int max)
         {
             using(var rng = new RNGCryptoServiceProvider())
             {
@@ -42,20 +37,19 @@ namespace SafePasswordGenerator
             }
         }
 
-        public String generate(bool numbers, bool symbols)
+        public static string generate(bool numbers, bool symbols, int length)
         {
-            var rng = new RNGCryptoServiceProvider();
             StringBuilder password = new StringBuilder();
-            String characters = lowercase + uppercase;
+            string chars = characters;
 
             if(numbers)
             {
-                characters += digit;
+                chars += digit;
             }
 
             if(symbols)
             {
-                characters += special;
+                chars += special;
             }
 
             do
@@ -63,21 +57,21 @@ namespace SafePasswordGenerator
                 password.Clear();
                 for(int i = 0; i < length; i++)
                 {
-                    password.Append(characters[next(characters.Length)]);
+                    password.Append(chars[next(chars.Length)]);
                 }
             } while(!isValid(password.ToString(), numbers, symbols));
 
             return password.ToString();
         }
 
-        private bool isValid(String password, bool numbers, bool symbols)
+        private static bool isValid(string password, bool numbers, bool symbols)
         {
             bool lower = false;
             bool upper = false;
             bool dig = !numbers;
             bool spec = !symbols;
 
-            for (int i = 0; i < length; i++)
+            for (int i = 0; i < password.Length; i++)
             {
                 if (!lower && lowercase.Contains(password[i]))
                 {
