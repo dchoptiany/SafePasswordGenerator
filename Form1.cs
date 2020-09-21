@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Drawing.Text;
 using System.Windows.Forms;
+using System.IO;
 
 namespace SafePasswordGenerator
 {
@@ -36,6 +37,8 @@ namespace SafePasswordGenerator
 
         private readonly Image closeIconLight = Image.FromFile("..\\..\\Resources\\closeIconLight.png");
         private readonly Image minimizeIconLight = Image.FromFile("..\\..\\Resources\\minimizeIconLight.png");
+
+        private readonly SaveFileDialog sfd;
 
         public Form1()
         {
@@ -85,6 +88,18 @@ namespace SafePasswordGenerator
 
             numericUpDown1.Minimum = 6;
             numericUpDown1.Maximum = 32;
+
+            sfd = new SaveFileDialog
+            {
+                InitialDirectory = "C:\\Users\\" + Environment.UserName + "\\Desktop",
+                Title = "Choose location",
+                CheckFileExists = false,
+                CheckPathExists = true,
+                DefaultExt = "txt",
+                Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*",
+                FilterIndex = 2,
+                RestoreDirectory = true
+            };
         }
 
         private void updateColors()
@@ -147,7 +162,7 @@ namespace SafePasswordGenerator
         }
 
         private void button5_Click(object sender, EventArgs e)
-        { 
+        {
             if(!darkMode)
             {
                 button5.Text = "Light mode";
@@ -182,5 +197,5 @@ namespace SafePasswordGenerator
         {
 
         }
-    }
+    } 
 }
