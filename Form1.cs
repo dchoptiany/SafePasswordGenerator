@@ -57,6 +57,7 @@ namespace SafePasswordGenerator
             button5.Font = smallText;
             button1.Font = regularText;
             button3.Font = regularText;
+            button6.Font = regularText;
             label2.Font = regularText;
             numericUpDown1.Font = regularText;
             checkedListBox1.Font = regularText;
@@ -94,6 +95,7 @@ namespace SafePasswordGenerator
 
             button1.BackColor = color2;
             button3.BackColor = color2;
+            button6.BackColor = color2;
             numericUpDown1.BackColor = color2;
 
             label1.ForeColor = color3;
@@ -174,6 +176,11 @@ namespace SafePasswordGenerator
             }
             darkMode = !darkMode;
             updateColors();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
