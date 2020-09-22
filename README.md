@@ -8,4 +8,6 @@ User can additionally choose digits and special symbols, what is recommended by 
 
 After generating password user can copy it to clipboard, by pressing password or 'Copy' button. 
 
+It is also possible to generate multiple passwords and save them to a text file.
+
 *Created by Damian Choptiany (dchoptiany)*
