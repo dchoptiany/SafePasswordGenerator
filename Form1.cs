@@ -9,6 +9,7 @@ namespace SafePasswordGenerator
     public partial class Form1 : Form
     {
         private bool darkMode = true;
+        private bool exportButton = false;
 
         private Color color1;
         private Color color2;
@@ -61,8 +62,11 @@ namespace SafePasswordGenerator
             button1.Font = regularText;
             button3.Font = regularText;
             button6.Font = regularText;
+            button8.Font = regularText;
             label2.Font = regularText;
+            label6.Font = regularText;
             numericUpDown1.Font = regularText;
+            numericUpDown2.Font = regularText;
             checkedListBox1.Font = regularText;
             checkedListBox2.Font = regularText;
             label1.Font = boldTitle;
@@ -75,6 +79,7 @@ namespace SafePasswordGenerator
             button1.ForeColor = color4;
             button3.ForeColor = color4;
             numericUpDown1.ForeColor = color4;
+            numericUpDown2.ForeColor = color4;
 
             checkedListBox1.SetItemChecked(0, true);
             checkedListBox1.SetItemChecked(1, true);
@@ -88,6 +93,11 @@ namespace SafePasswordGenerator
 
             numericUpDown1.Minimum = 6;
             numericUpDown1.Maximum = 32;
+
+            button8.Visible = false;
+            label6.Visible = false;
+            numericUpDown2.Visible = false;
+            numericUpDown2.Minimum = 1;
 
             sfd = new SaveFileDialog
             {
@@ -111,13 +121,16 @@ namespace SafePasswordGenerator
             button1.BackColor = color2;
             button3.BackColor = color2;
             button6.BackColor = color2;
+            button8.BackColor = color2;
             numericUpDown1.BackColor = color2;
+            numericUpDown2.BackColor = color2;
 
             label1.ForeColor = color3;
             label2.ForeColor = color3;
             label3.ForeColor = color3;
             label4.ForeColor = color3;
             label5.ForeColor = color3;
+            label6.ForeColor = color3;
             checkedListBox1.ForeColor = color3;
             checkedListBox2.ForeColor = color3;
 
@@ -155,7 +168,7 @@ namespace SafePasswordGenerator
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode.ToString() == "G")
+            if (e.KeyCode.ToString() == "G")
             {
                 button1_Click(sender, e);
             }
@@ -163,7 +176,7 @@ namespace SafePasswordGenerator
 
         private void button5_Click(object sender, EventArgs e)
         {
-            if(!darkMode)
+            if (!darkMode)
             {
                 button5.Text = "Light mode";
                 button5.ForeColor = color3Light;
@@ -195,7 +208,39 @@ namespace SafePasswordGenerator
 
         private void button6_Click(object sender, EventArgs e)
         {
+            if (!exportButton)
+            {
+                button1.Visible = false;
+                button3.Visible = false;
+                label4.Visible = false;
+                label5.Visible = false;
+                maskedTextBox1.Visible = false;
+
+                button6.Text = "Generate one";
+                button8.Visible = true;
+                numericUpDown2.Visible = true;
+                label6.Visible = true;
+                exportButton = true;
+            }
+            else
+            {
+                button1.Visible = true;
+                button3.Visible = true;
+                label4.Visible = true;
+                maskedTextBox1.Visible = true;
+
+                button6.Text = "Generate to file";
+                button8.Visible = false;
+                numericUpDown2.Visible = false;
+                label6.Visible = false;
+                exportButton = false;
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
 
         }
-    } 
+    }
 }
+
