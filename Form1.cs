@@ -58,6 +58,7 @@ namespace SafePasswordGenerator
             label3.Font = smallText;
             label4.Font = smallText;
             label5.Font = smallText;
+            label7.Font = smallText;
             button5.Font = smallText;
             button1.Font = regularText;
             button3.Font = regularText;
@@ -96,6 +97,7 @@ namespace SafePasswordGenerator
 
             button8.Visible = false;
             label6.Visible = false;
+            label7.Visible = false;
             numericUpDown2.Visible = false;
             numericUpDown2.Minimum = 1;
 
@@ -115,6 +117,7 @@ namespace SafePasswordGenerator
         private void updateColors()
         {
             BackColor = color1;
+
             checkedListBox1.BackColor = color1;
             checkedListBox2.BackColor = color1;
 
@@ -122,6 +125,7 @@ namespace SafePasswordGenerator
             button3.BackColor = color2;
             button6.BackColor = color2;
             button8.BackColor = color2;
+
             numericUpDown1.BackColor = color2;
             numericUpDown2.BackColor = color2;
 
@@ -131,6 +135,8 @@ namespace SafePasswordGenerator
             label4.ForeColor = color3;
             label5.ForeColor = color3;
             label6.ForeColor = color3;
+            label7.ForeColor = color3;
+
             checkedListBox1.ForeColor = color3;
             checkedListBox2.ForeColor = color3;
 
@@ -233,14 +239,27 @@ namespace SafePasswordGenerator
                 button8.Visible = false;
                 numericUpDown2.Visible = false;
                 label6.Visible = false;
+                label7.Visible = false;
                 exportButton = false;
             }
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
+            if(sfd.ShowDialog() == DialogResult.OK)
+            {
+                string[] passwords = new string[Decimal.ToInt32(numericUpDown2.Value)];
+                string path = sfd.FileName;
 
+                for (int i = 0; i < numericUpDown2.Value; i++)
+                {
+                    passwords[i] = Generator.generate(checkedListBox2.GetItemChecked(0), checkedListBox2.GetItemChecked(1), Decimal.ToInt32(numericUpDown1.Value));
+                }
+
+                File.WriteAllLines(path, passwords);
+
+                label7.Visible = true;
+            }
         }
     }
 }
-
