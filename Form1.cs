@@ -8,7 +8,7 @@ namespace SafePasswordGenerator
 {
     public partial class Form1 : Form
     {
-        private bool darkMode = true;
+        private bool darkMode = false;
         private bool exportButton = false;
 
         private Color color1;
