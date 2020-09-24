@@ -33,11 +33,11 @@ namespace SafePasswordGenerator
         private Image closeIcon;
         private Image minimizeIcon;
 
-        private readonly Image closeIconDark = Image.FromFile("..\\..\\Resources\\closeIconDark.png");
-        private readonly Image minimizeIconDark = Image.FromFile("..\\..\\Resources\\minimizeIconDark.png");
+        private readonly Image closeIconDark = Image.FromFile("..\\..\\Resources\\Images\\closeIconDark.png");
+        private readonly Image minimizeIconDark = Image.FromFile("..\\..\\Resources\\Images\\minimizeIconDark.png");
 
-        private readonly Image closeIconLight = Image.FromFile("..\\..\\Resources\\closeIconLight.png");
-        private readonly Image minimizeIconLight = Image.FromFile("..\\..\\Resources\\minimizeIconLight.png");
+        private readonly Image closeIconLight = Image.FromFile("..\\..\\Resources\\Images\\closeIconLight.png");
+        private readonly Image minimizeIconLight = Image.FromFile("..\\..\\Resources\\Images\\minimizeIconLight.png");
 
         private readonly SaveFileDialog sfd;
 
