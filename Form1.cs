@@ -8,7 +8,7 @@ namespace SafePasswordGenerator
 {
     public partial class Form1 : Form
     {
-        private bool darkMode = false;
+        private bool darkMode = true;
         private bool exportButton = false;
 
         private Color color1;
@@ -45,7 +45,7 @@ namespace SafePasswordGenerator
         {
             InitializeComponent();
 
-            darkMode = !(File.ReadAllLines("..\\..\\dark.txt")[0] == "True");
+            darkMode = File.ReadAllLines("..\\..\\dark.txt")[0] == "True";
 
             pfc = new PrivateFontCollection();
             pfc.AddFontFile("..\\..\\Resources\\Fonts\\DejaVuSans.ttf");
@@ -155,7 +155,7 @@ namespace SafePasswordGenerator
 
         private void button2_Click(object sender, EventArgs e)
         {
-            File.WriteAllText("..\\..\\dark.txt", darkMode.ToString());
+            File.WriteAllText("..\\..\\dark.txt", (!darkMode).ToString());
             Application.Exit();
         }
 
@@ -185,7 +185,7 @@ namespace SafePasswordGenerator
 
         private void button5_Click(object sender, EventArgs e)
         {
-            if (!darkMode)
+            if(darkMode)
             {
                 button5.Text = "Light mode";
                 button5.ForeColor = color3Light;
