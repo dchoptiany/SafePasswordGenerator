@@ -68,6 +68,8 @@ namespace SafePasswordGenerator
             button8.Font = regularText;
             label2.Font = regularText;
             label6.Font = regularText;
+            label8.Font = regularText;
+            label9.Font = regularText;
             numericUpDown1.Font = regularText;
             numericUpDown2.Font = regularText;
             checkedListBox1.Font = regularText;
@@ -138,6 +140,8 @@ namespace SafePasswordGenerator
             label5.ForeColor = color3;
             label6.ForeColor = color3;
             label7.ForeColor = color3;
+            label8.ForeColor = color3;
+            label9.ForeColor = color3;
 
             checkedListBox1.ForeColor = color3;
             checkedListBox2.ForeColor = color3;
