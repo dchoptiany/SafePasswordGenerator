@@ -158,7 +158,7 @@ namespace SafePasswordGenerator
                     label9.Text = "Very weak";
                     label9.ForeColor = Color.Red;
                 }
-                if (numericUpDown1.Value < 9)
+                else if (numericUpDown1.Value < 9)
                 {
                     label9.Text = "Average";
                     label9.ForeColor = Color.Orange;
@@ -181,7 +181,7 @@ namespace SafePasswordGenerator
             }
             else if (checkedListBox2.GetItemChecked(0) || checkedListBox2.GetItemChecked(1))
             {
-                if (numericUpDown1.Value < 8)
+                if (numericUpDown1.Value < 9)
                 {
                     label9.Text = "Very weak";
                     label9.ForeColor = Color.Red;
@@ -209,7 +209,7 @@ namespace SafePasswordGenerator
             }
             else
             {
-                if (numericUpDown1.Value < 8)
+                if (numericUpDown1.Value < 9)
                 {
                     label9.Text = "Very weak";
                     label9.ForeColor = Color.Red;
