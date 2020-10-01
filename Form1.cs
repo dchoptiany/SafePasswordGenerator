@@ -68,6 +68,8 @@ namespace SafePasswordGenerator
             button8.Font = regularText;
             label2.Font = regularText;
             label6.Font = regularText;
+            label8.Font = regularText;
+            label9.Font = regularText;
             numericUpDown1.Font = regularText;
             numericUpDown2.Font = regularText;
             checkedListBox1.Font = regularText;
@@ -138,12 +140,101 @@ namespace SafePasswordGenerator
             label5.ForeColor = color3;
             label6.ForeColor = color3;
             label7.ForeColor = color3;
+            label8.ForeColor = color3;
 
             checkedListBox1.ForeColor = color3;
             checkedListBox2.ForeColor = color3;
 
             button2.BackgroundImage = closeIcon;
             button4.BackgroundImage = minimizeIcon;
+        }
+
+        private void calculateSafetyRate()
+        {
+            if (checkedListBox2.GetItemChecked(0) && checkedListBox2.GetItemChecked(1))
+            {
+                if (numericUpDown1.Value < 8)
+                {
+                    label9.Text = "Very weak";
+                    label9.ForeColor = Color.Red;
+                }
+                else if (numericUpDown1.Value < 9)
+                {
+                    label9.Text = "Average";
+                    label9.ForeColor = Color.Orange;
+                }
+                else if (numericUpDown1.Value < 10)
+                {
+                    label9.Text = "Good";
+                    label9.ForeColor = Color.GreenYellow;
+                }
+                else if (numericUpDown1.Value < 11)
+                {
+                    label9.Text = "Very good";
+                    label9.ForeColor = Color.Green;
+                }
+                else
+                {
+                    label9.Text = "Extremely safe";
+                    label9.ForeColor = Color.DarkGreen;
+                }
+            }
+            else if (checkedListBox2.GetItemChecked(0) || checkedListBox2.GetItemChecked(1))
+            {
+                if (numericUpDown1.Value < 9)
+                {
+                    label9.Text = "Very weak";
+                    label9.ForeColor = Color.Red;
+                }
+                else if (numericUpDown1.Value < 10)
+                {
+                    label9.Text = "Average";
+                    label9.ForeColor = Color.Orange;
+                }
+                else if (numericUpDown1.Value < 12)
+                {
+                    label9.Text = "Good";
+                    label9.ForeColor = Color.GreenYellow;
+                }
+                else if (numericUpDown1.Value < 13)
+                {
+                    label9.Text = "Very good";
+                    label9.ForeColor = Color.Green;
+                }
+                else
+                {
+                    label9.Text = "Extremely safe";
+                    label9.ForeColor = Color.DarkGreen;
+                }
+            }
+            else
+            {
+                if (numericUpDown1.Value < 9)
+                {
+                    label9.Text = "Very weak";
+                    label9.ForeColor = Color.Red;
+                }
+                else if (numericUpDown1.Value < 12)
+                {
+                    label9.Text = "Average";
+                    label9.ForeColor = Color.Orange;
+                }
+                else if (numericUpDown1.Value < 13)
+                {
+                    label9.Text = "Good";
+                    label9.ForeColor = Color.GreenYellow;
+                }
+                else if (numericUpDown1.Value < 14)
+                {
+                    label9.Text = "Very good";
+                    label9.ForeColor = Color.Green;
+                }
+                else
+                {
+                    label9.Text = "Extremely safe";
+                    label9.ForeColor = Color.DarkGreen;
+                }
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -263,6 +354,16 @@ namespace SafePasswordGenerator
 
                 label7.Visible = true;
             }
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            calculateSafetyRate();
+        }
+
+        private void checkedListBox2_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            calculateSafetyRate();
         }
     }
 }
